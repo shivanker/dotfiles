@@ -1,0 +1,16 @@
+3ba6e2d1ea874bfb6badb8522ab86c1ae272923d		branch 'master' of https://github.com/mafredri/zsh-async
+29b234f11e280d90bb09597435ca4724e9505f20	not-for-merge	branch 'github-actions-test' of https://github.com/mafredri/zsh-async
+35800ceb05e4d820fa200899fb95c305a2c24010	not-for-merge	branch 'insomnia-monster-mix' of https://github.com/mafredri/zsh-async
+314eb5135efa84e4d2448d33fd40509257a4a5c0	not-for-merge	branch 'issue-40' of https://github.com/mafredri/zsh-async
+39a03e1c09aea871e69943ca68d51b18573380fa	not-for-merge	branch 'more-zpty-fixes' of https://github.com/mafredri/zsh-async
+05b55691d8cf2d0763dd14cf50e20111d603c398	not-for-merge	branch 'no-zpty' of https://github.com/mafredri/zsh-async
+326a088a43f96e38d68c4808d1402ef6ea616778	not-for-merge	branch 'test-rebased' of https://github.com/mafredri/zsh-async
+c842ec3558ada643ddc5677ffd8e2d42e9bed134	not-for-merge	branch 'test-timeout' of https://github.com/mafredri/zsh-async
+c0ef2008867caf8a7518470e915cc54f9c137bdb	not-for-merge	branch 'test-trace-async-worker' of https://github.com/mafredri/zsh-async
+9409a378eb982da7d1e3c69518f4e6bf5e8f9bb5	not-for-merge	branch 'zpty-fixes' of https://github.com/mafredri/zsh-async
+a733511030ee9d1bd8fa8cd0979b8800dafb073d	not-for-merge	tag 'v1.8.0' of https://github.com/mafredri/zsh-async
+a7643bdd9698044f360959e8d6746e49514a779f	not-for-merge	tag 'v1.8.1' of https://github.com/mafredri/zsh-async
+69164810db99c3372c8469c67b33df35452440be	not-for-merge	tag 'v1.8.2' of https://github.com/mafredri/zsh-async
+7da4482763060ecbfec343f260d44b326f6d2f20	not-for-merge	tag 'v1.8.3' of https://github.com/mafredri/zsh-async
+a3e1b48a68698cfefcbe446e98a92abaaf35a20b	not-for-merge	tag 'v1.8.4' of https://github.com/mafredri/zsh-async
+bfabf5544a2111834f48674199295df254258408	not-for-merge	tag 'v1.8.5' of https://github.com/mafredri/zsh-async
