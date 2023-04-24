@@ -31,7 +31,9 @@ export AUTH_HOST='shivanker.lon.corp.google.com'
 
 # Homebrew stuff
 export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
-export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.homebrew_token)"
+if [[ -f "~/.homebrew_token" ]]; then
+  export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.homebrew_token)"
+fi
 
 export LESS="$LESS -X -F"
 
