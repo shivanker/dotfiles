@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/shivanker/.zprezto'
+let g:netrw_dirhist_2='/Volumes/pandoraT5/Pandora/FB Laptop Backup/devserver/dotfiles/.fontconfig'
+let g:netrw_dirhist_3='/Volumes/pandoraT5/Pandora/FB Laptop Backup/devserver/dotfiles/.fonts'
+let g:netrw_dirhist_4='/Volumes/pandoraT5/Pandora/FB Laptop Backup/devserver/dotfiles/.fonts/VistaSans'
