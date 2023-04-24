@@ -1,0 +1,33 @@
+[user]
+  name = Shivanker Goel
+  email = shivanker.goel@gmail.com
+[core]
+  editor = vim
+#  autocrlf = input
+[color]
+  ui = always
+  status = always
+[log]
+  date = local
+[push]
+  default = simple
+[diff]
+  renames = copies
+[alias]
+  tree = log --graph --full-history --branches --pretty=format:'%C(auto,yellow)%h %C(auto,blue)%<(21,trunc)%ad %C(auto,green)%<(12,trunc)%aN %C(auto)%d%Creset %s'
+  sl = log --date-order --pretty=format:'%C(auto)%h%x09%d %s' --graph --simplify-by-decoration --full-history --branches
+  lg = log --pretty=format:'%C(auto,yellow)%h %C(auto,blue)%<(21,trunc)%ad %C(auto,green)%<(12,trunc)%aN %C(auto)%d%Creset %s'
+  xl = sl -10
+  st = status
+  sttaus = status
+  sattus = status
+  co = checkout
+  up = checkout
+  pbase = pull --rebase
+  amend = commit --amend --no-edit
+[branch]
+  autosetupmerge = always
+[merge]
+  conflictstyle = diff3
+[pull]
+  rebase = true
