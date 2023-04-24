@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled 
+c02360b5f856695d5c8041736268d9841afb5eff refs/remotes/origin/fix_blank_line_appended_to_hg_output
+e4cc27725e400e2b6843b941f8753ba1f999ddbf refs/remotes/origin/master
+87435354ffda33ab48be423d29a491649efe17f7 refs/tags/0.3.0
+cd68c20a8e7bd60499c9726569b57517d58a9fb6 refs/tags/0.3.1

@@ -1,0 +1,9 @@
+# pack-refs with: peeled fully-peeled 
+e4d0951581cd65741150b6ba0cbe896b5f22816d refs/remotes/origin/InsertModePasteBug
+1b595bb8350825046d453f01bc5c0d557daac9b5 refs/remotes/origin/NeocompleteFix
+77fb3ec6cf8abb9a460f66b39df96634c985e146 refs/remotes/origin/SubChange
+055bc2df730c294298e46991294245db1ff1ab55 refs/remotes/origin/VisualModeFixAttempt
+9b09667d418991bcdcc86bb309baa5f79fff8bac refs/remotes/origin/YankRingStyleSwap
+e0349e4d0f14503bc63e185b946af048cfb6b22e refs/remotes/origin/custom
+9977f2df005f01a4fe8d217bead0048a5bacd34a refs/remotes/origin/develop
+c2b332c4f19d0d1674ff8671dc90b24063ea0684 refs/remotes/origin/master
