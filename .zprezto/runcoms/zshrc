@@ -25,14 +25,23 @@ setopt autopushd pushdminus pushdsilent pushdtohome
 ###############################################
 
 # Global stuff
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export EDITOR=vim
-export AUTH_HOST='shivanker.lon.corp.google.com'
 
 # Homebrew stuff
-export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
-if [[ -f "~/.homebrew_token" ]]; then
-  export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.homebrew_token)"
+if [[ -d "/opt/homebrew" ]]; then
+  export LD_LIBRARY_PATH=/opt/homebrew/lib:$LD_LIBRARY_PATH
+  if [[ -f "~/.homebrew_token" ]]; then
+    export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.homebrew_token)"
+  fi
+  # Homebrew / Mac specific aliases
+  alias python='/opt/homebrew/bin/python3'
+  alias htop='sudo /opt/homebrew/bin/htop'
+  function brew_llvm() {
+    export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+    export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+    export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+  }
 fi
 
 export LESS="$LESS -X -F"
@@ -47,19 +56,18 @@ export PATH=$PATH:/Applications/IINA.app/Contents/MacOS:/Users/shivanker/.local/
 ################### ALIASES #####################
 #################################################
 
-alias python='/opt/homebrew/bin/python3'
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias md5sum='md5 -r'
+  alias sublime='/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text'
+  alias chrome='open -a "Google Chrome"'
 
-alias htop='sudo /opt/homebrew/bin/htop'
+  function notify() {
+    "$@" &&
+      reattach-to-user-namespace osascript -e "display notification \"Finished successfully!\" with title \"$1\""  ||
+      reattach-to-user-namespace osascript -e "display notification \"Failed with error code $?.\" with title \"$1\""
+  }
+fi
 
-alias glinux='ssh glinux'
-alias aapt=/Volumes/google/src/head/depot/google3/third_party/java/android/android_sdk_macosx/build-tools/aapt
-
-alias md5sum='md5 -r'
-alias sublime='/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text'
-alias chrome='open -a "Google Chrome"'
-
-alias coqtop='rlwrap coqtop'
-alias ocaml='rlwrap ocaml'
 alias sqlite3='rlwrap -a sqlite3'
 
 alias cls='clear && '
@@ -67,48 +75,17 @@ alias cls='clear && '
 # Syntax highlighting in cat!
 alias pcat="pygmentize -f terminal256 -O style=native -g"
 
-function g4d() {
-  cd /google/src/cloud/$USER/$1/google3
-}
-
 function checkmd5() {
   for file in $(ls | grep '.md5$'); do
     local file=${file%.*}
-    grep -q "`md5 -q $file`\\s\+$file" ${file}.md5
+    grep -q "`md5sum -q $file`\\s\+$file" ${file}.md5
     if [ $? -ne 0 ]; then
       echo "MD5 mismatch for file: $file"
     fi
   done
 }
 
-function notify() {
-  "$@" &&
-    reattach-to-user-namespace osascript -e "display notification \"Finished successfully!\" with title \"$1\""  ||
-    reattach-to-user-namespace osascript -e "display notification \"Failed with error code $?.\" with title \"$1\""
-}
+if test -e "${HOME}/.iterm2_shell_integration.zsh"; then
+  source "${HOME}/.iterm2_shell_integration.zsh"
+fi
 
-function totalmem() {
-  local pcent=`ps aux | grep -i $1 | grep -v grep | awk '{print $4;}' | paste -sd+ - | bc`
-  local total=$((`sysctl hw.memsize | awk '{print $2;}'`/1024.0/1024.0))
-  local megs=$(($pcent*$total/100.0))
-  gprintf '%.2f M\n' "$megs"
-}
-
-function brew_llvm() {
-  export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-}
-
-
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-[[ -e "/Users/shivanker/mdproxy/data/mdproxy_zshrc" ]] && source "/Users/shivanker/mdproxy/data/mdproxy_zshrc" # MDPROXY-ZSHRC
-[[ -e "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/shivanker/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/shivanker/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/shivanker/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/shivanker/google-cloud-sdk/completion.zsh.inc'; fi
