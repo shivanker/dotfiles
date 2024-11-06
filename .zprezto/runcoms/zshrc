@@ -50,7 +50,9 @@ export LESS="$LESS -X -F"
 ########### Manual Path Changes #################
 #################################################
 
-export PATH=$PATH:/Applications/IINA.app/Contents/MacOS:/Users/shivanker/.local/bin
+if [[ "$(uname)" == "Darwin" ]]; then
+  export PATH=$PATH:/Applications/IINA.app/Contents/MacOS:/Users/shivanker/.local/bin
+fi
 
 #################################################
 ################### ALIASES #####################
